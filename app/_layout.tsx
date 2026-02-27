@@ -1,5 +1,7 @@
 import { Stack } from "expo-router";
 import { useFonts } from "expo-font";
+import { useEffect } from "react";
+import * as SpalshScreen from "expo-splash-screen";
 
 export default function RootLayout() {
 
@@ -13,5 +15,17 @@ export default function RootLayout() {
     "Jakarta-SemiBold": require("../assets/fonts/PlusJakartaSans-SemiBold.ttf"),
   });
 
-  return <Stack />;
+  useEffect(() => {
+    if (loaded)
+      SpalshScreen.hideAsync();
+  },[loaded]);
+
+  if (!loaded) return null;
+
+  return <Stack>
+    <Stack.Screen name="index" options={{ headerShown: false }} />
+    <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+    <Stack.Screen name="(root)" options={{ headerShown: false }} />
+    <Stack.Screen name="+not-found" />
+  </Stack>;
 }
