@@ -11,6 +11,7 @@ import InputField from "@/components/InputField";
 import { useState } from "react";
 import CustomButton from "@/components/CustomButton";
 import { Link } from "expo-router";
+import OAuth from "@/components/OAuth";
 
 const SignUp = () => {
   const [form, setForm] = useState({
@@ -29,12 +30,11 @@ const SignUp = () => {
       <ScrollView
         showsVerticalScrollIndicator={false}
         className="bg-white flex-1"
-        keyboardShouldPersistTaps="handled"
       >
         <View className="bg-white">
-          <View className="relative w-full h-[250px]">
-            <Image source={images.signUpCar} className="z-0 w-full h-[250px]" />
-            <Text className="text-2xl text-black font-JakartaSemiBold absolute bottom-5 left-5">
+          <View className="relative w-full h-[220px]">
+            <Image source={images.signUpCar} className="z-0 w-full h-[220px]" />
+            <Text className="text-2xl text-black font-JakartaSemiBold absolute bottom-2 left-5">
               Create Your Account
             </Text>
           </View>
@@ -69,11 +69,11 @@ const SignUp = () => {
               className="mt-6"
             />
 
-            {/*OAuth*/}
+            <OAuth />
 
             <Link
               href="/sign-in"
-              className="text-lg text-center text-general-200 mt-10"
+              className="text-lg text-center text-general-200 mt-4"
             >
               Already have an account?{" "}
               <Text className="text-primary-500">Log In</Text>
